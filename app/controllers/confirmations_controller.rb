@@ -1,13 +1,13 @@
 class ConfirmationsController < ApplicationController
   def new
-    @confirmation = confirmations.build
+    @confirmation = Confirmation.new
   end
 
   def create
-    @confirmation = confirmations.build(confirmation_params)
+    @confirmation = Confirmation.new(confirmation_params)
 
     if @confirmation.save
-      flash[:success] = "confirmation Success!"
+      flash[:success] = "Confirmation Success!"
       redirect_to root_path
     else
       flash[:error] = "Error occured!"
