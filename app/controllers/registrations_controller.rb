@@ -1,10 +1,10 @@
 class RegistrationsController < ApplicationController
   def new
-    @registration = registrations.build
+    @registration = Registration.new
   end
 
   def create
-    @registration = registrations.build(registration_params)
+    @registration = Registration.new(registration_params)
 
     if @registration.save
       flash[:success] = "Registration Success!"
