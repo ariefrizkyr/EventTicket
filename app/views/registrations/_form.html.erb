@@ -1,0 +1,49 @@
+<%= simple_form_for @registration do |f| %>
+  <div class="form-group">
+    <%= f.input :title, label: 'Title', collection: title, input_html: { class: 'selection form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :first_name, label: 'First Name', placeholder: 'First Name', input_html: { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :last_name, label: 'Last Name', placeholder: 'Last Name', input_html: { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :position, label: 'Position', placeholder: 'Position', input_html: { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :institution, label: 'Institution', placeholder: 'Institution', input_html: { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :address, label: 'Address', placeholder: 'Address', input_html: { rows: 5, class: 'no-resize form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :city, label: 'City', collection: city, input_html: { class: 'selection form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :province, label: 'Province', collection: province, input_html: { class: 'selection form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :country, label: 'Country', collection: country, input_html: { class: 'selection form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :postal_code, label: 'Postal Code', input_html: { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :email, label: 'Email', placeholder: 'Email', input_html: { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :phone_number, label: 'Phone Number', placeholder: 'Phone Number', input_html: { class: 'form-control' } %>
+  </div>
+<% end %>
