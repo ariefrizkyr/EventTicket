@@ -8,6 +8,6 @@ resources :registrations
 
   root 'pages#index'
 
-  resources :registrations, only: [:new, :create]
+  resources :registrations, only: [:new, :create, :show]
   resources :confirmations, only: [:new, :create]
 end
