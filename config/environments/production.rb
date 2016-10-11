@@ -76,4 +76,23 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Setup action mailer
+  config.action_mailer.default_url_options = { host: 'ielforum.id' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default charset: "utf-8"
+
+  # Use smtp for sending mail
+  config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => Rails.application.secrets.sendgrid_username,
+    :password => Rails.application.secrets.sendgrid_password,
+    :domain => 'ielforum.id',
+    :address => Rails.application.secrets.sendgrid_url,
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end

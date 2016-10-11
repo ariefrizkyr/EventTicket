@@ -9,8 +9,9 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
 
     if @registration.save
+      RegistrationMailer.new_registration(@registration).deliver_now
       flash[:success] = "Registration Success!"
-      redirect_to root_path
+      redirect_to @registration
     else
       flash[:error] = "Error occured!"
       render :new
