@@ -19,6 +19,7 @@ class RegistrationsController < ApplicationController
     def registration_params
       params.require(:registration).permit(:title, :first_name, :last_name, :position,
                                            :institution, :address, :city, :province,
-                                           :country, :postal_code, :email, :phone_number)
+                                           :country, :postal_code, :email, :phone_number,
+                                           :order_code, :status)
     end
 end

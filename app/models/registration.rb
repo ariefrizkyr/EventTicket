@@ -1,5 +1,5 @@
 class Registration < ActiveRecord::Base
-  before_create :randomize_id
+  before_create :randomize_id, :order_code
 
   validates :title, presence: true
   validates :first_name, presence: true
@@ -13,11 +13,18 @@ class Registration < ActiveRecord::Base
   validates :postal_code, presence: true
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true
+  validates :order_code, presence: true, allow_blank: true
+  validates :status, presence: false, allow_blank: true
 
   private
     def randomize_id
       begin
         self.id = SecureRandom.random_number(1_000_000)
       end while Registration.where(id: self.id).exists?
+    end
+
+    def order_code
+      subid = id.to_s.slice(0..2)
+      self.order_code = subid
     end
 end
