@@ -21,6 +21,8 @@ class RegistrationDashboard < Administrate::BaseDashboard
     postal_code: Field::String,
     email: Field::String,
     phone_number: Field::String,
+    order_number: Field::String,
+    status: Field::Boolean,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -51,6 +53,8 @@ class RegistrationDashboard < Administrate::BaseDashboard
     :postal_code,
     :email,
     :phone_number,
+    :order_number,
+    :status,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -69,6 +73,8 @@ class RegistrationDashboard < Administrate::BaseDashboard
     :postal_code,
     :email,
     :phone_number,
+    :order_number,
+    :status,
   ].freeze
 
   # Overwrite this method to customize how registrations are displayed

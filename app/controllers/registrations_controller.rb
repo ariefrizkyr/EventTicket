@@ -30,6 +30,6 @@ class RegistrationsController < ApplicationController
       params.require(:registration).permit(:title, :first_name, :last_name, :position,
                                            :institution, :address, :city, :province,
                                            :country, :postal_code, :email, :phone_number,
-                                           :order_code, :status)
+                                           :order_number, :status)
     end
 end

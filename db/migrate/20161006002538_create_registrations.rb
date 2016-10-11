@@ -13,6 +13,8 @@ class CreateRegistrations < ActiveRecord::Migration
       t.string :postal_code
       t.string :email
       t.string :phone_number
+      t.string :order_number
+      t.boolean :status
     end
   end
 end

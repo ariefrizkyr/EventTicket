@@ -13,7 +13,7 @@ class Registration < ActiveRecord::Base
   validates :postal_code, presence: true
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true
-  validates :order_code, presence: true, allow_blank: true
+  validates :order_number, presence: true, allow_blank: true
   validates :status, presence: false, allow_blank: true
 
   private
@@ -24,7 +24,7 @@ class Registration < ActiveRecord::Base
     end
 
     def order_code
-      subid = id.to_s.slice(0..2)
-      self.order_code = subid
+      subid = id.to_s.each_char.first(3).join
+      self.order_number = subid
     end
 end
