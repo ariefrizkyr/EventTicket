@@ -22,7 +22,7 @@ class RegistrationsController < ApplicationController
   end
 
   private
-    def find_order
+    def find_registration
       @registration = Registration.find(params[:id])
     end
 
