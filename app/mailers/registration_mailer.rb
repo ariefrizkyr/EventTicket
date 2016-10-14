@@ -5,7 +5,7 @@ class RegistrationMailer < ActionMailer::Base
 
     mail(to: @registration.email,
          from: "IELForum <admin@ielforum.id>",
-         subject: '[IELForum] Segera Lakukan Pembayaran'
+         subject: '[IELForum] Anda Telah Terdaftar. Segera Lakukan Pembayaran'
     )
   end
 end
