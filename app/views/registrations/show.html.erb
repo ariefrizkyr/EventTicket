@@ -6,20 +6,34 @@
       </div>
 
       <div class="panel-body">
-        <p>Hello <%= @registration.first_name %> <%= @registration.last_name %>,</p>
-        <p>Thank you for signing up to this event. Please make the payment to the bank account below:</p>
+        <% if @registration.status == false %>
+          <p>Hello <%= @registration.first_name %> <%= @registration.last_name %>,</p>
+          <p>Thank you for signing up to this event. Please make the payment to the bank account below:</p>
 
-        <p><strong>Bank Name:</strong> xxx<br>
-        <strong>Account Name:</strong>xxx<br>
-        <strong>Account Number:</strong>xxx</p>
-        <strong>Payment Amount: $1,<%= @registration.order_number %></strong>
+          <p><strong>Bank Name:</strong> xxx<br>
+          <strong>Account Name:</strong>xxx<br>
+          <strong>Account Number:</strong>xxx</p>
+          <strong>Payment Amount: $1,<%= @registration.order_number %></strong>
 
-        <p>After you made the payment, please confirm the payment through the link below:</p>
-        <p><%= link_to 'Confirm Payment', new_confirmation_path %></p>
+          <p>After you made the payment, please confirm the payment through the link below:</p>
+          <p><%= link_to 'Confirm Payment', new_confirmation_path %></p>
 
-        <p>If you need any assistant, please don't hesitate to <%= link_to 'contact us', 'mailto:xxx@xxx.com' %>.</p>
-        <p>Kind regards,</p>
-        <p>Your Name</p>
+          <p>If you need any assistant, please don't hesitate to <%= link_to 'contact us', 'mailto:xxx@xxx.com' %>.</p>
+          <p>Kind regards,</p>
+          <p>Your Name</p>
+        <% else %>
+          <p>Hello <%= @registration.first_name %> <%= @registration.last_name %>,</p>
+          <p>Your registration has been paid and confirmed.</p>
+
+          <p>Here is your ticket details:</p>
+          <p><strong>Ticket Number:</strong> <%= @registration.id %><br>
+             <strong>Name:</strong> <%= @registration.first_name %> <%= @registration.last_name %><br>
+             <strong>Status: <% if @registration.status = true %>Confirmed<% else %>Not Paid</p>
+
+          <p>If you need any assistant, please don't hesitate to <%= link_to 'contact us', 'mailto:xxx@xxx.com' %>.</p>
+          <p>Kind regards,</p>
+          <p>Your Name</p>
+        <% end %>
       </div>
     </div>
   </div>
