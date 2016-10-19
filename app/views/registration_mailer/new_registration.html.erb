@@ -163,8 +163,11 @@
               <p><strong>Bank Name:</strong> xxx<br>
               <strong>Account Name:</strong>xxx<br>
               <strong>Account Number:</strong>xxx</p>
-              <strong>Payment Amount: $1,<%= @registration.order_number %></strong>
-
+              <% if Confirmation.count < 50 %> <!-- Early Bird -->
+                <p><strong>Payment Amount: $1,<%= @registration.order_number %></strong></p>
+              <% else %>
+                <p><strong>Payment Amount: $5,<%= @registration.order_number %></strong></p>
+              <% end %>
               <p>After you made the payment, please confirm the payment through the link below:</p>
               <p><%= link_to 'Confirm Payment', new_confirmation_path %></p>
 
