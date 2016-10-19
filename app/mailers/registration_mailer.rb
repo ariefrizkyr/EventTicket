@@ -4,8 +4,8 @@ class RegistrationMailer < ActionMailer::Base
     @registration = registration
 
     mail(to: @registration.email,
-         from: "IELForum <admin@ielforum.id>",
-         subject: '[IELForum] Anda Telah Terdaftar. Segera Lakukan Pembayaran'
+         from: "Arief R Ramadhan<admin@ariefrizky.com>",
+         subject: '[EventTicket] You are Registered. Please Confirm The Payment'
     )
   end
 end
