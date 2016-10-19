@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :confirmations
     resources :registrations
-    root to: "registrations#index"
+    root to: "confirmations#index"
   end
 
   root 'pages#index'

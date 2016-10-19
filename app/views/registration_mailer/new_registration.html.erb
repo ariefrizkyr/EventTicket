@@ -164,9 +164,21 @@
               <strong>Account Name:</strong>xxx<br>
               <strong>Account Number:</strong>xxx</p>
               <% if Confirmation.count < 50 %> <!-- Early Bird -->
-                <p><strong>Payment Amount: $1,<%= @registration.order_number %></strong></p>
+                <% if @registration.ticket_type == "Student" %>
+                  <p><strong>Payment Amount: $1<%= @registration.order_number %></strong></p>
+                <% elsif @registration.ticket_type == "Regular" %>
+                  <p><strong>Payment Amount: $5,<%= @registration.order_number %></strong></p>
+                <% elsif @registration.ticket_type == "Group" %>
+                  <p><strong>Payment Amount: $10,<%= @registration.order_number %></strong></p>
+                <% end %>
               <% else %>
-                <p><strong>Payment Amount: $5,<%= @registration.order_number %></strong></p>
+                <% if @registration.ticket_type == "Student" %>
+                  <p><strong>Payment Amount: $2<%= @registration.order_number %></strong></p>
+                <% elsif @registration.ticket_type == "Regular" %>
+                  <p><strong>Payment Amount: $6,<%= @registration.order_number %></strong></p>
+                <% elsif @registration.ticket_type == "Group" %>
+                  <p><strong>Payment Amount: $12,<%= @registration.order_number %></strong></p>
+                <% end %>
               <% end %>
               <p>After you made the payment, please confirm the payment through the link below:</p>
               <p><%= link_to 'Confirm Payment', new_confirmation_path %></p>

@@ -14,6 +14,7 @@ class Registration < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true
   validates :order_number, presence: true, allow_blank: true
+  validates :ticket_type, presence: true
   validates :status, presence: false, allow_blank: true
 
   private

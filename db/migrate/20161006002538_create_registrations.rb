@@ -14,6 +14,7 @@ class CreateRegistrations < ActiveRecord::Migration
       t.string :email
       t.string :phone_number
       t.string :order_number
+      t.string :ticket_type
       t.boolean :status
     end
   end

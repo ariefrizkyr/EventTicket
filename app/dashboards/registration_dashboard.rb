@@ -22,6 +22,7 @@ class RegistrationDashboard < Administrate::BaseDashboard
     email: Field::String,
     phone_number: Field::String,
     order_number: Field::String,
+    ticket_type: Field::String,
     status: Field::Boolean,
   }.freeze
 
@@ -54,6 +55,7 @@ class RegistrationDashboard < Administrate::BaseDashboard
     :email,
     :phone_number,
     :order_number,
+    :ticket_type,
     :status,
   ].freeze
 
@@ -74,6 +76,7 @@ class RegistrationDashboard < Administrate::BaseDashboard
     :email,
     :phone_number,
     :order_number,
+    :ticket_type,
     :status,
   ].freeze
 
